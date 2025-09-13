@@ -1,12 +1,11 @@
+
 name: Publish to GitHub Packages
 
 on:
   push:
-    branches:
-      - master
+    branches: [ "master" ]
   pull_request:
-    branches:
-      - master
+    branches: [ "master" ]
 
 jobs:
   build:
@@ -30,5 +29,5 @@ jobs:
       - name: Build and Publish
         env:
           GITHUB_ACTOR: ${{ github.actor }}
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} 
+          GITHUB_TOKEN: ${{ secrets.GIT_TOKEN }} 
         run: ./gradlew publish 
