@@ -1,0 +1,32 @@
+name: Publish to GitHub Packages
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      packages: write
+
+    steps:
+      - uses: actions/checkout@v4
+      - name: Set up JDK
+        uses: actions/setup-java@v4
+        with:
+          java-version: '17' 
+          distribution: 'temurin'
+          cache: gradle
+
+      - name: Make gradlew executable
+        run: chmod +x ./gradlew
+
+      - name: Build and Publish
+        env:
+          GITHUB_ACTOR: ${{ github.actor }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} 
+        run: ./gradlew publish 
