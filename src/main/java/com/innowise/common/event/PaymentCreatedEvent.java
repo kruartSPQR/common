@@ -17,5 +17,4 @@ public class PaymentCreatedEvent {
     private BigDecimal amount;
     private String status;
     private LocalDateTime timestamp;
-
 }
