@@ -20,8 +20,7 @@ repositories {
 }
 
 dependencies {
-	implementation 'org.springframework.kafka:spring-kafka'
-	testImplementation 'org.springframework.kafka:spring-kafka-test'
+	implementation 'org.springframework.kafka:spring-kafka:4.1.0'
 	testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
     compileOnly("org.projectlombok:lombok:1.18.40")
     annotationProcessor("org.projectlombok:lombok:1.18.40")
