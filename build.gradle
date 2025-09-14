@@ -2,9 +2,9 @@ plugins {
     id 'java-library'
     id 'maven-publish'
 }
-
+def runNumber = System.getenv('GITHUB_RUN_NUMBER')
 group = 'com.innowise'
-version = '0.0.1-SNAPSHOT'
+version = "0.1-${runNumber}"
 description = 'common-library'
 
 java {
